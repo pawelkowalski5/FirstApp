@@ -29,7 +29,7 @@
         android:id="@+id/przyciskZadzwon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Zadzwoń"
+        android:text="Zadzwoń tam!"
         android:layout_below="@id/numerTelefonu"
         android:onClick="zadzwonClicked"
         />
