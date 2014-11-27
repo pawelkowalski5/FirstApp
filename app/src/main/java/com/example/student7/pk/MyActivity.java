@@ -9,17 +9,21 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
 
+@EActivity(R.layout.activity_my)
 public class MyActivity extends ActionBarActivity {
 
-    private EditText username;
+    @ViewById(R.id.username)
+    public EditText username;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) { //pierwsza faza aktywności
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my);
-        username = (EditText) findViewById(R.id.username); //znajdź widok na podstawie ID
-    }
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) { //pierwsza faza aktywności
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_my);
+//        username = (EditText) findViewById(R.id.username); //znajdź widok na podstawie ID
+//    }
 
     public void loginClicked(View view)    {                //pokazuje się na chwilę i znika
         Intent intent = new Intent(this, SecondActivity.class);
