@@ -6,11 +6,20 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.student7.pk.adapter.PersonListAdapter;
+import com.example.student7.pk.data.Person;
+
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.ViewById;
+
 
 @EActivity(R.layout.activity_my)
 public class MyActivity extends ActionBarActivity {
@@ -48,5 +57,25 @@ public class MyActivity extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @ViewById
+    ListView list;
+
+    @Bean
+    PersonListAdapter adapter;
+
+    @AfterViews
+    void init(){
+//      String[] values = new String[]{"A", "B", "C", "D", "E", "F", "G", "H"};
+
+//      ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
+
+        list.setAdapter(adapter);
+    }
+
+    @ItemClick(R.id.list)
+    void listItemClicked(Person item){
+        Toast.makeText(this, item.name, Toast.LENGTH_SHORT).show();
     }
 }
